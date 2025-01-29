@@ -1,44 +1,58 @@
-> This repository contains code and scripts used for studying content injection attacks. 
+# Content Injection Attacks in Neural IR Models
 
-- Please email mtamber@uwaterloo.ca for any questions about this work!
-- We will continue to refine this codebase
+This repository contains code and scripts for studying *content injection attacks* in neural information retrieval models. Content injection attacks involve inserting query and query terms into non-relevant passages to make them seem relevant and inserting non-relevant or even harmful text into seemingly relevant passages to promote misleading or malicious content in search.
 
-### Files
-- **adversarial_passage_generator.py**  
-  - This script defines an AdversarialGenerator class, which manipulates text passages by injecting queries, keywords, or sentences to create adversarial passages for testing
+We will continue to refine this codebase. For questions or support, please reach out to [mtamber@uwaterloo.ca](mailto:mtamber@uwaterloo.ca).
 
-- **get_passages_and_sentences_from_beir_corpora.py**  
-  - This script extracts valid sentences from passages from BEIR corpora using heuristics to ensure sentences are meaningful and filters passages without valid sentences
+---
+
+## Overview
+This repository offers:
+- Scripts to generate adversarial passages and evaluate model vulnerability
+- Scripts to train and evaluate classifiers and embedding models more robust to content injection attacks
+---
+
+## Repository Structure
 
 ### Directories
 
 1. **attack_passages/**  
-   - Contains scripts to produce adversarial passages for particular models and attack settings
+   Scripts for creating adversarial passages tailored to specific models and attack scenarios.
 
 2. **attack_results/**  
-   - Stores results from model outputs and contains code to evaluate results
+   Stores model outputs under attack, along with evaluation scripts to analyze vulnerability.
 
 3. **classifier/**  
-   - Code related to training and evaluating a classifier to detect adversarial passages
+   Scripts for training and testing a classifier that flags adversarially modified passages.
 
 4. **embedding_retrieval/**  
-   - Code related to training and evaluating embedding models for retrieval
+   Scripts to fine-tune and evaluate embedding models for passage retrieval that are more robust to adversarial passages.
 
 5. **llm_judge/**  
-   - Contains scripts to produce and evaluate LLM relevance judgements
+   Scripts to evaluate large language model (LLM) judgments of passage relevance.
 
 6. **model_scores_and_judgements/**  
-   - Holds model retrieval results and LLM relevance judgements
+   Retrieval results and LLM-based relevance judgments for different experiments.
 
 7. **queries/**  
-   - Contains queries for the studied datasets
+   Query sets for the datasets used in these experiments.
 
 8. **random_sentences/**  
-   - Holds random sentences used for sentence injection
+   Random sentences used for sentence injection.
 
 9. **rel_passage_gen/**  
-   - Used to generate relevant passages for particular queries
+   Scripts to produce relevant passages given specific queries.
 
 10. **reranker/**  
-    - Code related to evaluating rerankers
+   Scripts for evaluating rerankers.
+
+### Files
+
+- **adversarial_passage_generator.py**  
+  Implements an `AdversarialGenerator` class to inject queries, keywords, or arbitrary text into passages, creating adversarial passages for testing.
+
+- **get_passages_and_sentences_from_beir_corpora.py**  
+  Extracts valid sentences from BEIR corpora passages using heuristics and filters out passages lacking meaningful sentences.
+
+---
 
